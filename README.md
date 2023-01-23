@@ -4,8 +4,8 @@ This AudioPlayer tutorial I learned from Youtuber [Niraj Dhungana](https://ndpni
 
 I use function component instead of the tutorial class component. I learn a lot from his tutorial and learn a lot the different between function and class components.
 
-This audio app development continue ... 😁 add more features
-For now, it works
+This audio app development is keeping add more features ... 😁
+For now, it works for basic music play 🎵
 
 ## Running the Audio App
 
