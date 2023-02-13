@@ -67,11 +67,12 @@ const PlayList = ({ navigation }) => {
       renderPlayList();
     }
   }, []);
-
-  const handleBannerPress = async (playList) => {
+  //addToPlayList is the audio that we want to add to the playlist.
+  const handleBannerPress = async (item) => {
     if (addToPlayList) {
       const result = await AsyncStorage.getItem("playlist");
-
+      console.log("###", result);
+      console.log("IIIII", addToPlayList);
       let oldList = [];
       let updatedList = [];
       let sameAudio = false;
@@ -79,8 +80,8 @@ const PlayList = ({ navigation }) => {
       if (result !== null) {
         oldList = JSON.parse(result);
 
-        updatedList = oldList.filter((list) => {
-          if (list.id === playList.id) {
+        updatedList = oldList.map((list) => {
+          if (list.id === item.id) {
             // we want to check is that same audio is already inside our list or not.
             for (const audio of list.audios) {
               if (audio.id === addToPlayList.id) {
@@ -112,9 +113,9 @@ const PlayList = ({ navigation }) => {
     }
 
     // if there is no audio selected then we want open the list.
-    selectedPlayList = playList;
+    selectedPlayList = item;
     // setShowPlayList(true);
-    navigation.navigate("PlayListDetail", playList);
+    navigation.navigate("PlayListDetail", item);
   };
 
   return (
